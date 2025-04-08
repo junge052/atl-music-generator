@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css">
+  <title>Explore the Music</title>
+</head>
+<body>
+  <h2>EXPLORE THE MUSIC</h2>
+  <p class="choose">choose the vibe and occasion you desire for a personalized ATL music recommendation</p>
+<label class="vibe" for="vibeInput">Vibe</label>
+<div class="vibe-container">
+  <div class="vibe-buttons">
+      <button class="vibe-btn" value="hype">hype</button>
+      <button class="vibe-btn" value="relaxed">relaxed</button>
+      <button class="vibe-btn" value="sweet">sweet</button>
+      <button class="vibe-btn" value="confident">confident</button>
+      <button class="vibe-btn" value="cool">cool</button>
+      <button class="vibe-btn" value="groovy">groovy</button>
+      <button class="vibe-btn" value="sad">sad</button>
+      <button class="vibe-btn" value="soulful">soulful</button>
+  </div>
+</div>
+<!-- three -->
+<label class="occasion" for="occasionInput">Occasion</label>
+<div class="occasion-container">
+  <div class="occasion-buttons">
+    <button class="occasion-btn" value="night drive">night drive</button>
+    <button class="occasion-btn" value="kickback">kickback</button>
+    <button class="occasion-btn" value="beach">beach</button>
+    <button class="occasion-btn" value="dancing">dancing</button>
+    <button class="occasion-btn" value="party">party</button>
+    <button class="occasion-btn" value="gym">gym</button>
+    <button class="occasion-btn" value="study sesh">study sesh</button>
+    <button class="occasion-btn" value="cry sesh">cry sesh</button>
+  </div>
+</div>
+<input type="hidden" id="vibeInput"/>
+<input type="hidden" id="occasionInput"/>
+<button class="search" id="search-btn" onclick="filterSongsByVibeAndOccasion()">generate</button>
+
+<div id="results"></div>
+	<!-- error message -->
+  <div class="error" id="error">
+    <div class="error-message">
+      NO MATChES FOUND!<br> TRY AGAINNNNNN
+      <button class="close-btn">X</button>
+    </div>
+  </div>
+  <!-- Playlist container where results will be appended -->
+<div class="playlist-container" id="playlist"></div>
+
+  <script src="music.js" defer></script>
+</body>
+</html>

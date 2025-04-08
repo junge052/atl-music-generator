@@ -1,0 +1,546 @@
+@font-face {
+    font-family: "credible";
+    src: url("assets/fontscopy/Credible-Regular.otf"),
+        url("assets/fontscopy/Credible-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "steps-mono";
+    src: url("assets/fontscopy/Steps-Mono-Thin.otf") format("opentype");
+}
+
+body {
+    font-family: "steps-mono";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("assets/blackpaper3.jpeg");
+    background-size: cover;
+    background-position: center;
+}
+
+.slideshow-container {
+    width: 90%;
+    max-width: 600px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.0s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Initial grayscale effect */
+.slideshow-container img {
+    filter: contrast(110%) brightness(100%) blur(2px) invert(70%);
+}
+
+/* Hover effect */
+.slideshow-container img:hover {
+    filter: contrast(120%) brightness(90%);
+    opacity: 90%;
+}
+
+h1 {
+    opacity: 0;
+    animation: fadeIn 2s forwards 5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.choose {
+    position: absolute;
+    top: 14%;
+    color: rgb(163, 163, 163)
+}
+
+.intro {
+    font-family: "steps-mono";
+    font-size: 23px;
+    text-transform: uppercase;
+    color: white;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    max-width: 50%;
+}
+
+.atlanta {
+    font-family: "credible";
+}
+
+.logo {
+    font-family: "credible";
+    color: rgb(163, 163, 163);
+    font-size: 22px;
+    position: absolute;
+    top: -19px;
+    left: 15px;
+}
+
+.explore {
+    font-family: "steps-mono";
+    font-size: 23px;
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+
+.coordinate-1 {
+    font-family: "steps-mono";
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    top: 7rem;
+    right: -90px;
+    transform: rotate(90deg);
+    cursor: pointer;
+    z-index: 1;
+    /* Ensure it's on top */
+}
+
+/* Hide dropdown by default */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: -14rem;
+    left: 75%;
+    /* Make it appear beside the rotated element */
+    transform: rotate(-90deg);
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* Show the dropdown when hovering over coordinate-1 */
+.coordinate-1:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the artist names */
+.artist-name {
+    display: block;
+    color: white;
+    /* Default text color */
+    text-decoration: none;
+    /* Remove underline */
+    font-family: "steps-mono";
+    font-size: 20px;
+    line-height: 22px;
+    padding: 5px 0;
+    text-shadow: none;
+}
+
+/* Hover effect to change the text color */
+.artist-name:hover {
+    color: #8a4cd1;
+    text-shadow: 2px 2px 10px #871dff;
+}
+
+.coordinate-1:hover {
+    color: rgb(181, 215, 204);
+    text-shadow: 2px 2px 10px rgba(148, 181, 182, 0.7);
+}
+
+.coordinate-2 {
+    font-family: "steps-mono";
+    font-size: 25px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    transform: rotate(90deg);
+    right: -80px;
+    color: rgb(163, 163, 163);
+}
+
+p {
+    color: white;
+    font-family: "steps-mono";
+    text-shadow: none;
+    font-size: 20px;
+    line-height: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: credible;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.error-message {
+    font-family: "credible";
+    color: #aaeadb;
+    text-align: center;
+    font-size: 12rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 85%;
+    /* 237px */
+    max-width: 90vw;
+    max-height: 80vh;
+    text-shadow: 0 0 10px rgb(233, 249, 61),
+        0 0 20px rgb(182, 248, 95),
+       0 0 30px rgb(181, 215, 204);
+    animation: flicker 0.5s ease-out forwards;
+    /* Run flicker for 1 second */
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    20% {
+        opacity: 0.3;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    40% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+
+    60% {
+        opacity: 0.2;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.6;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    font-family: "credible";
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    background-color: transparent;
+    color: #FFF600;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: red;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    z-index: 1;
+    /* Ensure content appears above the background */
+}
+
+h2 {
+    font-family: "steps-mono";
+    color: white;
+    position: absolute;
+    top: 20px;
+    font-size: 40px;
+}
+
+.playlist-container {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    padding: 0px;
+    background-color: #111;
+    z-index: 1;
+    display: none;
+}
+
+.song-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-snap-align: start;
+    transition: background 1s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.song-container.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.song-info {
+    font-family: "steps-mono";
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    mix-blend-mode: soft-light;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.song-container.active .song-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Title at the top */
+.song-title {
+    font-family: "credible";
+    position: absolute;
+    top: 10%;
+    line-height: 79%;
+    width: 100%;
+    color: white;
+    font-size: 8em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    mix-blend-mode: difference;
+    z-index: 10;
+}
+
+.song-container .background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    z-index: -1;
+    opacity: 90%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+
+}
+
+.vibe-container,
+.occasion-container {
+    position: relative;
+    /* Change from absolute to relative */
+    margin-bottom: 50px;
+    /* Add spacing between the containers */
+    padding: 30px;
+
+}
+
+.vibe-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 400px;
+}
+
+.occasion-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+}
+
+.vibe-btn {
+    font-family: "steps-mono";
+    font-size: 19px;
+    padding: 3px 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    mix-blend-mode: difference;
+}
+
+.occasion-btn {
+    font-family: "steps-mono";
+    font-size: 19px;
+    padding: 3px 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    mix-blend-mode: difference;
+
+}
+
+.vibe-btn.selected,
+.occasion-btn.selected {
+    background-color: rgb(181, 215, 204);
+    /* Tomato color for selected button */
+    color: white;
+    /* Change text color to white */
+    border: 2px solid white;
+    /* Optional: border around selected button */
+}
+
+.vibe-buttons,
+.occasion-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+}
+
+button.search {
+    position: absolute;
+    bottom: 10%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5vh;
+    font-family: "credible";
+    font-size: 70px;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 80%;
+    color: white;
+    border: none;
+    mix-blend-mode: screen;
+
+}
+
+button.search:hover {
+    color: rgb(181, 215, 204);
+}
+
+button[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+button.active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.occasion-btn.active {
+    -webkit-text-stroke: 0px;
+    color: white;
+}
+
+.vibe-btn:hover:not([disabled]) {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.occasion-btn:hover:not([disabled]) {
+    background-color: none;
+    color: #8a4cd1;
+}
+
+.result {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    bottom: 20px;
+    font-family: "steps-mono";
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    mix-blend-mode: difference;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: -20px;
+}
+
+.main-2 {
+    font-size: 80px;
+    text-align: left;
+}
+
+.subtitle {
+    font-size: 25px;
+    font-family: "steps-mono";
+}
+
+.vibe {
+    font-family: "credible";
+    color: white;
+    position: absolute;
+    font-size: 50px;
+    top: 32%;
+    left: 29%;
+}
+
+.occasion {
+    font-family: "credible";
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 32%;
+    left: 58%;
+}
