@@ -532,7 +532,7 @@ button.active {
     color: white;
     position: absolute;
     font-size: 50px;
-    top: 32%;
+    top: 30%;
     left: 29%;
 }
 
@@ -541,6 +541,6 @@ button.active {
     color: white;
     font-size: 50px;
     position: absolute;
-    top: 32%;
+    top: 30%;
     left: 58%;
 }
